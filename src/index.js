@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
 
@@ -15,6 +14,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <UserProvider>
         <BrowserRouter>
+          <GlobalStyle />
           <App />
         </BrowserRouter>
       </UserProvider>

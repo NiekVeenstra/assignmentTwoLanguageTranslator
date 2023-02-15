@@ -4,8 +4,8 @@ export const theme = {
   colors: {
     backgroundColor: "#ADD8E6",
     textColor: "#FFA500",
-    primary: "#ffa6007d",
-    secondary: "#f5f5f5",
+    border: "#ffa6007d",
+    white: "#ffffff",
   },
   fontSize: {
     h1: "1.2rem",
@@ -15,9 +15,17 @@ export const theme = {
   },
 };
 
-// export const GlobalStyle = createGlobalStyle`
-//   body {
-//     background-color: ${(props) => props.theme.colors.secondary};
-//     color: ${(props) => props.theme.colors.text};
-//   }
-// `;
+export const GlobalStyle = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: "Montserrat", sans-serif;
+        height: 100%;
+    }
+    button {
+        border: none;
+    }
+`;
