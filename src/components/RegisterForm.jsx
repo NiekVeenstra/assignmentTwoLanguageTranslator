@@ -29,6 +29,7 @@ const StyledInput = styled.input`
   border-radius: 40px;
   outline: none;
   font-size: 2rem;
+  padding: 0 .7rem;
 `;
 
 const StyledButton = styled.button`
@@ -56,7 +57,7 @@ const RegisterForm = () => {
   return (
     <StyledRegisterForm>
       <StyledInputContainer>
-        <StyledInput type="text" onChange={handleOnChange} />
+        <StyledInput type="text" placeholder="John Doe" onChange={handleOnChange} />
         <StyledButton onClick={submitNameToAPI}>arrow</StyledButton>
       </StyledInputContainer>
     </StyledRegisterForm>
