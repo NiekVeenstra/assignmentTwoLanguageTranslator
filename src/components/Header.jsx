@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const StyledHeader = styled.div`
   background-color: ${(props) => props.theme.colors.backgroundColor};
@@ -14,6 +15,7 @@ const StyledHeader = styled.div`
 `;
 const StyledTitle = styled.h1`
   font-size: ${(props) => props.theme.fontSize.h1};
+  color: ${(props) => props.theme.colors.textColor};
 `;
 const StyledUserProfileButton = styled.button`
   border: none;
@@ -27,7 +29,9 @@ const StyledUserName = styled.h3`
 const Header = () => {
   return (
     <StyledHeader>
-      <StyledTitle>Lost In Translation</StyledTitle>
+      <NavLink to="/">
+        <StyledTitle>Lost In Translation</StyledTitle>
+      </NavLink>
       <StyledUserProfileButton>
         <StyledUserName>LoremData</StyledUserName>
       </StyledUserProfileButton>
