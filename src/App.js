@@ -6,9 +6,10 @@ import ProfilePage from "./pages/ProfilePage";
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<StartupPage/>} />
-      <Route path="/translation" element={<TranslationPage/>}/>
-      <Route path="/profile" element={<ProfilePage/>}/>
+      <Route path="/" element={<StartupPage />} />
+      <Route path="/translation" element={<TranslationPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="*" element={<h2>No Page</h2>} />
     </Routes>
   );
 };

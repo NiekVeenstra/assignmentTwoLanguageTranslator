@@ -1,7 +1,14 @@
-const startupPage = () => {
-  return (
-    <div>startupPage</div>
-  )
-}
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
 
-export default startupPage
+const StartupPage = () => {
+
+
+  return (
+    <>
+      <div>startupPage</div>
+    </>
+  );
+};
+
+export default StartupPage;
