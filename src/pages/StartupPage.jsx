@@ -6,7 +6,7 @@ const StartupPage = () => {
 
   return (
     <>
-      <div>startupPage</div>
+      <h2></h2>
     </>
   );
 };
