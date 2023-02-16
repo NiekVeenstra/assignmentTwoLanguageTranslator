@@ -68,7 +68,7 @@ const RegisterForm = () => {
 
   useEffect(() => {
     if (user !== null) {
-      navigate.push("translation");
+      navigate("translation");
     }
   }, [user, navigate]);
 

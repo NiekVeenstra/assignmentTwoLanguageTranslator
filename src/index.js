@@ -10,7 +10,7 @@ import AppContext from "./context/AppContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  //<React.StrictMode>
+  <React.StrictMode>
     <ThemeProvider theme={theme}>
       <AppContext>
         <BrowserRouter>
@@ -19,7 +19,7 @@ root.render(
         </BrowserRouter>
       </AppContext>
     </ThemeProvider>
-  //</React.StrictMode>
+  </React.StrictMode>
 );
 
 reportWebVitals();
