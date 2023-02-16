@@ -21,6 +21,7 @@ const StartupPage = () => {
     <StyledStartupPage>
       <StyledHeader>Lost In Translation</StyledHeader>
       <StyledParagraph>Get started here</StyledParagraph>
+      <StyledParagraph>What is your name?</StyledParagraph>
       <RegisterForm/>
     </StyledStartupPage>
   );
