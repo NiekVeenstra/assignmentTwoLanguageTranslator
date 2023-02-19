@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { useUser } from "../context/UserContext";
+import Navbar from "./navbar/Navbar";
+import { storageSave } from "../utils/storage";
+import { STORAGE_KEY_USER } from "../const/storageKeys";
 
 const StyledHeader = styled.div`
   background-color: ${(props) => props.theme.colors.backgroundColor};
@@ -27,13 +31,29 @@ const StyledUserName = styled.h3`
 `;
 
 const Header = () => {
+  const { user, setUser } = useUser();
+
+  const handleLogoutClick = () => {
+    if (window.confirm("Are you sure you want to logout?")) {
+      storageSave(STORAGE_KEY_USER, null);
+      setUser(null);
+    }
+  };
+
   return (
     <StyledHeader>
       <NavLink to="/">
         <StyledTitle>Lost In Translation</StyledTitle>
       </NavLink>
-      <StyledUserProfileButton>
-        <StyledUserName>LoremData</StyledUserName>
+      <Navbar />
+      {/* <StyledUserProfileButton>
+        <StyledUserName>{user && user.username}</StyledUserName>
+      </StyledUserProfileButton> */}
+      <NavLink to="/profile">
+        <StyledUserName>{user && user.username}</StyledUserName>
+      </NavLink>
+      <StyledUserProfileButton onClick={handleLogoutClick}>
+        <StyledUserName>Logout</StyledUserName>
       </StyledUserProfileButton>
     </StyledHeader>
   );
