@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 import Navbar from "./navbar/Navbar";
-import { storageSave } from "../utils/storage";
+import { storageRemove } from "../utils/storage";
 import { STORAGE_KEY_USER } from "../const/storageKeys";
 
 const StyledHeader = styled.div`
@@ -35,7 +35,7 @@ const Header = () => {
 
   const handleLogoutClick = () => {
     if (window.confirm("Are you sure you want to logout?")) {
-      storageSave(STORAGE_KEY_USER, null);
+      storageRemove(STORAGE_KEY_USER);
       setUser(null);
     }
   };

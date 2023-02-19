@@ -20,7 +20,7 @@ const createUser = async (username) => {
       headers: createHeaders(),
       body: JSON.stringify({
         username,
-        favourites: [],
+        translations: [],
       }),
     });
     if (!response.ok) {
