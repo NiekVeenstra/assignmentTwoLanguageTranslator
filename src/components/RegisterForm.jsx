@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { loginUser } from "../api/user";
 import { storageSave } from "../utils/storage";
 import { useNavigate } from "react-router-dom";
+import { STORAGE_KEY_USER } from "../const/storageKeys";
 
 const StyledRegisterForm = styled.div`
   width: 20rem;
@@ -79,7 +80,7 @@ const RegisterForm = () => {
       setApiError(error);
     }
     if (userResponse !== null) {
-      storageSave("translator-user", userResponse);
+      storageSave(STORAGE_KEY_USER, userResponse);
       setUser(userResponse);
     }
     setLoading(false);
