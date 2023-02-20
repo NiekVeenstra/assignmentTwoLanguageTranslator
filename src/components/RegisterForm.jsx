@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { useUser } from "../context/UserContext";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../api/user";
@@ -7,48 +6,48 @@ import { storageSave } from "../utils/storage";
 import { useNavigate } from "react-router-dom";
 import { STORAGE_KEY_USER } from "../const/storageKeys";
 
-const StyledRegisterForm = styled.div`
-  width: 20rem;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+// const StyledRegisterForm = styled.div`
+//   width: 20rem;
+//   height: 5rem;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
-const StyledForm = styled.form`
-  background-color: ${(props) => props.theme.colors.white};
-  padding: 0.3rem;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 40px;
-`;
+// const StyledForm = styled.form`
+//   background-color: ${(props) => props.theme.colors.white};
+//   padding: 0.3rem;
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: 40px;
+// `;
 
-const StyledFieldset = styled.fieldset`
-  border: none;
-  width: 75%;
-  height: 100%;
-`;
+// const StyledFieldset = styled.fieldset`
+//   border: none;
+//   width: 75%;
+//   height: 100%;
+// `;
 
-const StyledInput = styled.input`
-  border: none;
-  width: 100%;
-  height: 100%;
-  border-radius: 40px;
-  outline: none;
-  font-size: 2rem;
-  padding: 0 0.7rem;
-`;
+// const StyledInput = styled.input`
+//   border: none;
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 40px;
+//   outline: none;
+//   font-size: 2rem;
+//   padding: 0 0.7rem;
+// `;
 
-const StyledButton = styled.button`
-  background-color: ${(props) => props.theme.colors.textColor};
-  width: 25%;
-  height: 100%;
-  border-radius: 40px;
-  cursor: pointer;
-`;
+// const StyledButton = styled.button`
+//   background-color: ${(props) => props.theme.colors.textColor};
+//   width: 25%;
+//   height: 100%;
+//   border-radius: 40px;
+//   cursor: pointer;
+// `;
 
 const usernameConfig = {
   required: true,
@@ -99,24 +98,24 @@ const RegisterForm = () => {
   })();
 
   return (
-    <StyledRegisterForm>
-      <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <StyledFieldset>
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <fieldset>
           <label htmlFor="username"></label>
-          <StyledInput
+          <input
             type="text"
             {...register("username", usernameConfig)}
             placeholder="JohnDoe"
           />
           {errorMessage}
-        </StyledFieldset>
-        <StyledButton type="submit" disabled={loading}>
+        </fieldset>
+        <button type="submit" disabled={loading}>
           arrow
-        </StyledButton>
-      </StyledForm>
+        </button>
+      </form>
       {loading && console.log("Logging in...")}
       {apiError && console.log(apiError)}
-    </StyledRegisterForm>
+    </div>
   );
 };
 
