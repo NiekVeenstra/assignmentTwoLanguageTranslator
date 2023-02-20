@@ -53,7 +53,7 @@ const Header = () => {
         <StyledUserName>{user && user.username}</StyledUserName>
       </NavLink>
       <StyledUserProfileButton onClick={handleLogoutClick}>
-        <StyledUserName>Logout</StyledUserName>
+        {user && <StyledUserName>Logout</StyledUserName>}
       </StyledUserProfileButton>
     </StyledHeader>
   );
