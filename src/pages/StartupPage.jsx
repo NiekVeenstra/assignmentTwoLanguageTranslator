@@ -29,7 +29,6 @@ const StyledLoginContainer = styled.div`
   }
 
   @media (max-width: 500px) {
-    background-color: green;
     width: 100%;
     min-width: 350px;
   }
