@@ -27,6 +27,12 @@ const StyledLoginContainer = styled.div`
     background-color: ${(props) => props.theme.colors.backgroundColorActive};
     color: ${(props) => props.theme.colors.textColorDark};
   }
+
+  @media (max-width: 500px) {
+    background-color: green;
+    width: 100%;
+    min-width: 350px;
+  }
   
 `;
 
