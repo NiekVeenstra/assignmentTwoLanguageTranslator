@@ -1,7 +1,11 @@
-export const storageSave = (key, value) => {
-  if (!key) {
-    throw new Error("no key provided");
+const validateKey = (key) => {
+  if (!key || typeof key !== "string") {
+    throw new Error("Invalid key was provided");
   }
+};
+
+export const storageSave = (key, value) => {
+  validateKey(key);
 
   if (!value) {
     throw new Error("no value provided");
@@ -11,6 +15,8 @@ export const storageSave = (key, value) => {
 };
 
 export const storageRead = (key) => {
+  validateKey(key);
+
   const data = localStorage.getItem(key);
   if (data) {
     return JSON.parse(data);
@@ -20,5 +26,6 @@ export const storageRead = (key) => {
 };
 
 export const storageRemove = (key) => {
+  validateKey(key);
   localStorage.removeItem(key);
 };
