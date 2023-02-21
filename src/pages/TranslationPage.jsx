@@ -11,7 +11,6 @@ import { storageSave } from "../utils/storage";
 const StyledTranslationPage = styled.div`
   background-color: ${(props) => props.theme.colors.backgroundColor};
   color: ${(props) => props.theme.colors.textColor};
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,7 +102,7 @@ const StyledEnter = styled.div`
 const translationConfig = {
   required: true,
   minLength: 1,
-  maxLength: 100,
+  maxLength: 30,
 };
 
 const TranslationPage = () => {
@@ -185,7 +184,7 @@ const TranslationPage = () => {
             ) {
               return "";
             } else {
-              return <img key={index} src={`img/${x}.png`} />;
+              return <img key={index} src={`img/${x}.png`} alt="img" />;
             }
           })}
         </StyledResultImageContainer>
