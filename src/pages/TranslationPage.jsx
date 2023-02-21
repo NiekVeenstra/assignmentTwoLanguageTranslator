@@ -24,7 +24,7 @@ const StyledTitle = styled.h2`
 const StyledParagraph = styled.p`
   margin-top: 2.3vh;
   text-align: center;
-`
+`;
 
 const StyledFormContainer = styled.div`
   margin-top: 5.3vh;
@@ -166,7 +166,6 @@ const TranslationPage = () => {
       {search && (
         <StyledResultImageContainer>
           {split.map((x, index) => {
-            console.log(x);
             if (x === " ") {
               return <StyledEnter></StyledEnter>;
             }

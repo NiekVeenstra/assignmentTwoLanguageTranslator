@@ -60,6 +60,8 @@ const StyledButton = styled.button`
   border: solid 0.2rem ${(props) => props.theme.colors.border};
   border-radius: 40px;
   padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.backgroundColorActive};
