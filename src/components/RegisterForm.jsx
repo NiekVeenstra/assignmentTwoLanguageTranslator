@@ -7,10 +7,13 @@ import { storageSave } from "../utils/storage";
 import { useNavigate } from "react-router-dom";
 import { STORAGE_KEY_USER } from "../const/storageKeys";
 
+import { FiArrowRightCircle } from "react-icons/fi";
+
 const StyledRegisterForm = styled.div`
   width: 20rem;
   height: 5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -43,16 +46,23 @@ const StyledInput = styled.input`
 `;
 
 const StyledButton = styled.button`
-  background-color: ${(props) => props.theme.colors.textColor};
+  background-color: ${(props) => props.theme.colors.white};
   width: 25%;
   height: 100%;
   border-radius: 40px;
   cursor: pointer;
 `;
 
+const StyledFiArrowRightCircle = styled(FiArrowRightCircle)`
+  width: 100%;
+  height: 100%;
+  color: ${(props) => props.theme.colors.textColorActive};
+`;
+
 const usernameConfig = {
   required: true,
   minLength: 2,
+  maxLength: 10,
 };
 
 const RegisterForm = () => {
@@ -91,10 +101,13 @@ const RegisterForm = () => {
       return null;
     }
     if (errors.username.type === "required") {
-      return console.log("Username is required.");
+      return <p>*Username is required.</p>;
     }
     if (errors.username.type === "minLength") {
-      return console.log("Username needs to be atleast 2 characters.");
+      return <p>*Username needs atleast 2 characters.</p>;
+    }
+    if (errors.username.type === "maxLength") {
+      return <p>*Username needs less then 11 characters.</p>;
     }
   })();
 
@@ -102,20 +115,19 @@ const RegisterForm = () => {
     <StyledRegisterForm>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledFieldset>
-          <label htmlFor="username"></label>
           <StyledInput
             type="text"
             {...register("username", usernameConfig)}
             placeholder="JohnDoe"
           />
-          {errorMessage}
         </StyledFieldset>
         <StyledButton type="submit" disabled={loading}>
-          arrow
+          <StyledFiArrowRightCircle />
         </StyledButton>
       </StyledForm>
-      {loading && console.log("Logging in...")}
-      {apiError && console.log(apiError)}
+      {errorMessage}
+      {loading && <p>Logging in...</p>}
+      {apiError && <p>apiError</p>}
     </StyledRegisterForm>
   );
 };

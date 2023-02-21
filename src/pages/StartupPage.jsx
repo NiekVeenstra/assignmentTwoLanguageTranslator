@@ -12,6 +12,24 @@ const StyledStartupPage = styled.div`
   justify-content: center;
 `;
 
+const StyledLoginContainer = styled.div`
+  border: solid 0.3rem ${(props) => props.theme.colors.border};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3rem;
+  height: 30rem;
+  border-radius: 40px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.backgroundColorActive};
+    color: ${(props) => props.theme.colors.textColorDark};
+  }
+  
+`;
+
 const StyledHeader = styled.h1``;
 
 const StyledParagraph = styled.p``;
@@ -19,10 +37,12 @@ const StyledParagraph = styled.p``;
 const StartupPage = () => {
   return (
     <StyledStartupPage>
-      <StyledHeader>Lost In Translation</StyledHeader>
-      <StyledParagraph>Get started here</StyledParagraph>
-      <StyledParagraph>What is your name?</StyledParagraph>
-      <RegisterForm/>
+      <StyledLoginContainer>
+        <StyledHeader>Lost In Translation</StyledHeader>
+        <StyledParagraph>Get started here</StyledParagraph>
+        <StyledParagraph>What is your name?</StyledParagraph>
+        <RegisterForm />
+      </StyledLoginContainer>
     </StyledStartupPage>
   );
 };

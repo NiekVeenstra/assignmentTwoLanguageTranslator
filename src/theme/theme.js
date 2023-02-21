@@ -2,9 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
   colors: {
-    backgroundColor: "#ADD8E6",
-    textColor: "#FFA500",
-    border: "#ffa6007d",
+    backgroundColor: "#000000",
+    backgroundColorActive: "#E69023",
+    textColor: "#ffffff",
+    textColorActive: "#E69023",
+    textColorDark: "#000000",
+    border: "#E69023",
     white: "#ffffff",
   },
   fontSize: {
@@ -24,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: "Montserrat", sans-serif;
         height: 100%;
+        background-color: ${(props) => props.theme.colors.backgroundColor};
     }
     button {
         border: none;
@@ -31,5 +35,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     a {
         text-decoration: none;
+        color: ${(props) => props.theme.colors.textColorDark};
     }
 `;

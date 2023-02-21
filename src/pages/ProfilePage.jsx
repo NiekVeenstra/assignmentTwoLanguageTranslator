@@ -42,14 +42,14 @@ const ProfilePage = () => {
   };
 
   return (
-    <div>
+    <div style={{color: "white"}}>
       ProfilePage
       <h1>hello {user.username}</h1>
       {user.translations.slice(-10).map((translation, index) => {
 
         return <p key={index}>{translation}</p>;
       })}
-      <button onClick={handleClearHistoryClick}>Clear History</button>
+      <button style={{color: "white"}} onClick={handleClearHistoryClick}>Clear History</button>
     </div>
   );
 };
