@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useUser } from "../context/UserContext";
@@ -26,6 +26,19 @@ const StyledUserName = styled.h3`
 
 const Header = () => {
   const { user } = useUser();
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <StyledHeader>
@@ -33,9 +46,9 @@ const Header = () => {
         <StyledTitle>Lost In Translation</StyledTitle>
       </NavLink>
       <NavLink to="/profile">
-        <StyledUserName>{user && user.username}</StyledUserName>
+        {width > 600 && <StyledUserName>{user && user.username}</StyledUserName>}
       </NavLink>
-      {user !== null && <DropdownMenu/>}
+      {user !== null && <DropdownMenu />}
     </StyledHeader>
   );
 };
