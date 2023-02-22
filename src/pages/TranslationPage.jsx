@@ -157,7 +157,7 @@ const TranslationPage = () => {
           <StyledFieldset>
             <StyledInput type="text" {...register("translations", translationConfig)} />
           </StyledFieldset>
-          <StyledButton style={{ border: "solid white 1px" }} type="submit">
+          <StyledButton type="submit">
             <StyledRiTranslate />
           </StyledButton>
         </StyledForm>
