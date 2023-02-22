@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { RiTranslate } from "react-icons/ri";
 import styled from "styled-components";
 import { translationAdd } from "../api/translation";
+import ResultImageContainer from "../components/resultImageContainer/ResultImageContainer";
 import { STORAGE_KEY_USER } from "../const/storageKeys";
 import { useUser } from "../context/UserContext";
 import withAuth from "../hoc/withAuth";
@@ -79,26 +80,6 @@ const StyledRiTranslate = styled(RiTranslate)`
   border-radius: 50px;
 `;
 
-const StyledResultImageContainer = styled.div`
-  border: solid 0.2rem ${(props) => props.theme.colors.border};
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 1rem;
-  margin: 3rem;
-  border-radius: 40px;
-
-  img {
-    height: 12vw;
-    max-height: 10rem;
-  }
-`;
-
-const StyledEnter = styled.div`
-  width: 5vw;
-`;
-
 const translationConfig = {
   required: true,
   minLength: 1,
@@ -112,7 +93,7 @@ const TranslationPage = () => {
     formState: { errors },
   } = useForm();
   const { user, setUser } = useUser();
-  const [split, setSplit] = useState([]);
+  const [characterArray, setCharacterArray] = useState([]);
   const [search, setSearch] = useState(false);
 
   const onSubmit = async ({ translations }) => {
@@ -133,7 +114,7 @@ const TranslationPage = () => {
   };
 
   const createTranslation = (translation) => {
-    setSplit(translation.split(""));
+    setCharacterArray(translation.split(""));
   };
 
   const errorMessage = (() => {
@@ -163,20 +144,7 @@ const TranslationPage = () => {
         </StyledForm>
       </StyledFormContainer>
       {errorMessage}
-      {search && (
-        <StyledResultImageContainer>
-          {split.map((x, index) => {
-            if (x === " ") {
-              return <StyledEnter key={index}></StyledEnter>;
-            }
-            if (!isNaN(x)) {
-              return "";
-            } else {
-              return <img key={index} src={`img/${x}.png`} alt="img" />;
-            }
-          })}
-        </StyledResultImageContainer>
-      )}
+      {search && <ResultImageContainer characterArray={characterArray} />}
     </StyledTranslationPage>
   );
 };
