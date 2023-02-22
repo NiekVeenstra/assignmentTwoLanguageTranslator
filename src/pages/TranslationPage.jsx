@@ -167,20 +167,9 @@ const TranslationPage = () => {
         <StyledResultImageContainer>
           {split.map((x, index) => {
             if (x === " ") {
-              return <StyledEnter></StyledEnter>;
+              return <StyledEnter key={index}></StyledEnter>;
             }
-            if (
-              x === "1" ||
-              x === "2" ||
-              x === "3" ||
-              x === "4" ||
-              x === "5" ||
-              x === "6" ||
-              x === "7" ||
-              x === "8" ||
-              x === "9" ||
-              x === "0"
-            ) {
+            if (!isNaN(x)) {
               return "";
             } else {
               return <img key={index} src={`img/${x}.png`} alt="img" />;
