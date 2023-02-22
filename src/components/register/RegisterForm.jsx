@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useUser } from "../context/UserContext";
+import { useUser } from "../../context/UserContext";
 import { useForm } from "react-hook-form";
-import { loginUser } from "../api/user";
-import { storageSave } from "../utils/storage";
+import { loginUser } from "../../api/user";
+import { storageSave } from "../../utils/storage";
 import { useNavigate } from "react-router-dom";
-import { STORAGE_KEY_USER } from "../const/storageKeys";
+import { STORAGE_KEY_USER } from "../../const/storageKeys";
 
 import { FiArrowRightCircle } from "react-icons/fi";
 

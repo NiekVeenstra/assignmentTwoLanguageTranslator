@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import RegisterForm from "../components/RegisterForm";
+import RegisterForm from "../components/register/RegisterForm";
 
 const StyledStartupPage = styled.div`
   background-color: ${(props) => props.theme.colors.backgroundColor};
@@ -32,7 +32,6 @@ const StyledLoginContainer = styled.div`
     width: 100%;
     min-width: 350px;
   }
-  
 `;
 
 const StyledHeader = styled.h1``;

@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import StartupPage from "./pages/StartupPage";
 import TranslationPage from "./pages/TranslationPage";
 import ProfilePage from "./pages/ProfilePage";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 
 const App = () => {
   return (

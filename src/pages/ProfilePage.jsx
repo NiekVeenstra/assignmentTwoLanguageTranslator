@@ -58,6 +58,7 @@ const StyledSpan = styled.span``;
 
 const StyledButton = styled.button`
   border: solid 0.2rem ${(props) => props.theme.colors.border};
+  color: ${(props) => props.theme.colors.textColor};
   border-radius: 40px;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -120,7 +121,7 @@ const ProfilePage = () => {
         </StyledSearchContainer>
       )}
       {user.translations.length !== 0 && (
-        <StyledButton style={{ color: "white" }} onClick={handleClearHistoryClick}>
+        <StyledButton onClick={handleClearHistoryClick}>
           Clear History
         </StyledButton>
       )}

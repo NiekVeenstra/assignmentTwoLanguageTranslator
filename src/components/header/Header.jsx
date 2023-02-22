@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { useUser } from "../context/UserContext";
-import DropdownMenu from "./navbar/DropdownMenu";
+import { useUser } from "../../context/UserContext";
+import DropdownMenu from "../navbar/DropdownMenu";
 
 const StyledHeader = styled.div`
   background-color: ${(props) => props.theme.colors.backgroundColorActive};
